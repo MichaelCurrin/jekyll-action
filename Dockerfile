@@ -7,13 +7,14 @@ LABEL maintainer="Alain Hélaïli <helaili@github.com>"
 
 COPY LICENSE README.md /
 
-ENV BUNDLER_VERSION=1.17.3
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    build-essential \
+    git
 
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
-        build-essential \
-        git \
-    && bundle config --global silence_root_warning 1
+ENV BUNDLER_VERSION="${BUNDLER_VERSION:-1.17.3}"
+RUN gem install bundler -v "${BUNDLER_VERSION}"
+
+RUN bundle config --global silence_root_warning 1
 
 COPY entrypoint.sh /
 

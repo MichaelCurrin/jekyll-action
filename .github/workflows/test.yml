@@ -10,3 +10,4 @@ jobs:
       - uses: ./
         env:
           JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
+          BUNDLE_VERSION: 1.17.3

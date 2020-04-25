@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     git
 
 ENV BUNDLER_VERSION="${BUNDLER_V:-2.1.2}"
-RUN gem install bundler -v "${BUNDLER_VERSION}"
+RUN gem install bundler -v "${BUNDLER_V:-2.1.2}"
 
 RUN bundle config --global silence_root_warning 1
 

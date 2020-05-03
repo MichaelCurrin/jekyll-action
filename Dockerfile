@@ -7,6 +7,8 @@ LABEL maintainer="Alain Hélaïli <helaili@github.com>"
 
 RUN apk add --no-cache git build-base
 
+ENV BUNDLE_VSN="$(grep -A 1 'BUNDLED WITH' Gemfile.lock | tail -n 1)"
+RUN gem install bundler -v "${BUNDLE_VSN:-2.1.4}"
 # debug
 RUN bundle version
 

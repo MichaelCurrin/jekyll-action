@@ -2,6 +2,7 @@
 *
 # include required files with an exception
 !entrypoint.sh
+!Gemfile.lock
 !LICENSE
 !README.md
 !THIRD_PARTY_NOTICE.md
